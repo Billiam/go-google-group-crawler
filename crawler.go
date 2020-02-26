@@ -26,7 +26,7 @@ func MkdirAll(group string) {
 }
 
 func DumpLinksFromUrl(t string, group string, url string, output_filename string) (int, int) {
-	r_total, _ := regexp.Compile("<i>.*?([0-9]+).*?([0-9]+).*?([0-9]+).*?</i>")
+	r_total, _ := regexp.Compile("<i>[^<]*?([0-9]+) *- *([0-9]+) of ([0-9]+)[^<]*?</i>")
 	r_url, _ := regexp.Compile("\"(https?://.*?)\"")
 	r_d, _ := regexp.Compile(fmt.Sprintf("/d/%s/%s", t, group))
 
